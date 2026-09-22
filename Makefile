@@ -33,7 +33,7 @@ image:
 	docker build -t $(IMAGE) .
 
 smoke:
-	IMAGE=$(IMAGE) ./scripts/smoke.sh
+	IMAGE=$(IMAGE) bash ./scripts/smoke.sh
 
 up:
 	docker compose up --build
