@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
+from typing import cast
 
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
+from starlette.types import ExceptionHandler
 
 from muwajjih.adapters.model.sklearn import SklearnDepartmentModel
 from muwajjih.adapters.supabase.client import create_supabase_client
@@ -23,6 +25,7 @@ def create_app(service_override: TriageService | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         app.state.ready = False
+
         if service_override is not None:
             app.state.triage_service = service_override
             app.state.ready = True
@@ -33,21 +36,47 @@ def create_app(service_override: TriageService | None = None) -> FastAPI:
         model = SklearnDepartmentModel(settings.model_path)
         model.load()
         model.warm_up()
+
         repository = None
+
         if settings.supabase_url and settings.supabase_key:
-            client = create_supabase_client(settings.supabase_url, settings.supabase_key)
+            client = create_supabase_client(
+                settings.supabase_url,
+                settings.supabase_key,
+            )
             repository = SupabasePredictionRepository(client)
+
         app.state.model = model
-        app.state.triage_service = TriageService(model=model, repository=repository)
+        app.state.triage_service = TriageService(
+            model=model,
+            repository=repository,
+        )
         app.state.ready = True
+
         yield
+
         app.state.ready = False
 
-    app = FastAPI(title="Muwajjih", version="1.0.0", lifespan=lifespan)
+    app = FastAPI(
+        title="Muwajjih",
+        version="1.0.0",
+        lifespan=lifespan,
+    )
+
     app.add_middleware(TraceIdMiddleware)
-    app.add_exception_handler(RequestValidationError, validation_exception_handler)
-    app.add_exception_handler(Exception, unhandled_exception_handler)
+
+    app.add_exception_handler(
+        RequestValidationError,
+        cast(ExceptionHandler, validation_exception_handler),
+    )
+
+    app.add_exception_handler(
+        Exception,
+        cast(ExceptionHandler, unhandled_exception_handler),
+    )
+
     app.include_router(router)
+
     return app
 
 
