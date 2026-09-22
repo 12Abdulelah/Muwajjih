@@ -124,3 +124,27 @@ The portfolio demonstrates the practical application of software engineering pra
 Official SDAIA Academy GitHub:
 
 https://github.com/SDAIAAcademy
+
+## Demo Evidence
+
+The following screenshots document the main live-demo flow and CI/CD evidence.
+
+### 1. Valid prediction request
+
+![Valid request](docs/screenshots/valid-request.webp)
+
+### 2. Valid prediction response
+
+![Valid response](docs/screenshots/valid-response.webp)
+
+### 3. Strict validation with an unexpected field
+
+![Malformed request](docs/screenshots/malformed-request.webp)
+
+### 4. Validation error response
+
+![Validation error response](docs/screenshots/validation-error-response.webp)
+
+### 5. CI/CD pipeline
+
+![GitHub Actions success](docs/screenshots/ci-success.webp)
