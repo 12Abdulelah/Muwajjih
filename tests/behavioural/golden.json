@@ -1,0 +1,7 @@
+[
+  {"complaint": "There is a fire in the building", "department": "public_safety", "priority": "urgent"},
+  {"complaint": "There is a gas leak near my building", "department": "public_safety", "priority": "urgent"},
+  {"complaint": "Garbage is overflowing beside the school", "department": "waste", "priority": "normal"},
+  {"complaint": "The street light is out on our road", "department": "lighting", "priority": "normal"},
+  {"complaint": "Sewage is overflowing near our homes", "department": "sewage", "priority": "normal"}
+]

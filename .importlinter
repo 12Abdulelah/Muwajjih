@@ -1,0 +1,21 @@
+[importlinter]
+root_package = muwajjih
+
+[importlinter:contract:domain_independence]
+name = Domain must remain independent
+type = forbidden
+source_modules =
+    muwajjih.domain
+forbidden_modules =
+    muwajjih.service
+    muwajjih.adapters
+    muwajjih.api
+
+[importlinter:contract:service_independence]
+name = Service must not depend on adapters or api
+type = forbidden
+source_modules =
+    muwajjih.service
+forbidden_modules =
+    muwajjih.adapters
+    muwajjih.api

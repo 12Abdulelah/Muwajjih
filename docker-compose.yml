@@ -1,0 +1,30 @@
+services:
+  api:
+    build: .
+    image: muwajjih:dev
+    ports:
+      - "8000:8000"
+    environment:
+      MUWAJJIH_ENVIRONMENT: production
+      MUWAJJIH_MODEL_PATH: /app/src/muwajjih/adapters/model/artifacts/classifier.joblib
+      MUWAJJIH_SUPABASE_URL: ${MUWAJJIH_SUPABASE_URL:-}
+      MUWAJJIH_SUPABASE_KEY: ${MUWAJJIH_SUPABASE_KEY:-}
+      MUWAJJIH_LOG_LEVEL: ${MUWAJJIH_LOG_LEVEL:-INFO}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/ready', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+
+  readiness-monitor:
+    image: curlimages/curl:8.12.1
+    depends_on:
+      api:
+        condition: service_healthy
+    command: ["sh", "-c", "while true; do curl -fsS http://api:8000/ready >/dev/null; sleep 30; done"]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://api:8000/ready"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
