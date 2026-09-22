@@ -2,9 +2,8 @@ import pytest
 from fastapi.testclient import TestClient
 
 from muwajjih.api.app import create_app
-from muwajjih.service.triage_service import TriageService
+from muwajjih.service.triage import TriageService
 from tests.doubles import FailingDepartmentModel
-
 
 pytestmark = pytest.mark.integration
 

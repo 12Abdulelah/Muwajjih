@@ -1,9 +1,9 @@
 import pytest
 
-pytestmark = pytest.mark.unit
-
 from muwajjih.domain.models import Complaint, Department, Priority
 from muwajjih.service.triage import TriageService
+
+pytestmark = pytest.mark.unit
 
 
 class FakeModel:

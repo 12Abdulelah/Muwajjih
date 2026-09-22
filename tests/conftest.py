@@ -11,7 +11,6 @@ from muwajjih.domain.models import Department
 from muwajjih.service.triage import TriageService
 from tests.doubles import ConstantDepartmentModel
 
-
 ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = ROOT / "src" / "muwajjih" / "adapters" / "model" / "artifacts" / "classifier.joblib"
 

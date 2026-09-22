@@ -3,7 +3,6 @@ from pathlib import Path
 
 import pytest
 
-
 MALFORMED = sorted((Path(__file__).resolve().parents[2] / "payloads" / "malformed").glob("*.json"))
 pytestmark = pytest.mark.integration
 

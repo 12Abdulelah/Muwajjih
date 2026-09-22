@@ -2,7 +2,6 @@ import pytest
 
 from muwajjih.domain.models import Department
 
-
 pytestmark = pytest.mark.integration
 
 

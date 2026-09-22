@@ -4,7 +4,6 @@ import re
 
 from muwajjih.domain.models import Priority
 
-
 _EMERGENCY_PATTERNS = (
     re.compile(r"\bfire\b", re.IGNORECASE),
     re.compile(r"\bflames?\b", re.IGNORECASE),

@@ -4,8 +4,7 @@ from pathlib import Path
 import pytest
 
 from muwajjih.domain.models import Complaint, Department, Priority
-from muwajjih.service.triage_service import TriageService
-
+from muwajjih.service.triage import TriageService
 
 GOLDEN_PATH = Path(__file__).with_name("golden.json")
 pytestmark = [pytest.mark.behavioural, pytest.mark.slow]

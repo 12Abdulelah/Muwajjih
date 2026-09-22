@@ -8,7 +8,6 @@ from starlette.middleware.base import BaseHTTPMiddleware
 
 from muwajjih.logs import trace_id_context
 
-
 logger = logging.getLogger("muwajjih.requests")
 
 
@@ -20,7 +19,12 @@ class TraceIdMiddleware(BaseHTTPMiddleware):
         try:
             response = await call_next(request)
             response.headers["X-Trace-ID"] = trace_id
-            logger.info("request_completed method=%s path=%s status=%s", request.method, request.url.path, response.status_code)
+            logger.info(
+                "request_completed method=%s path=%s status=%s",
+                request.method,
+                request.url.path,
+                response.status_code,
+            )
             return response
         finally:
             trace_id_context.reset(token)

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from muwajjih.domain.priority import priority_for
 from muwajjih.domain.models import Complaint, TriageResult
+from muwajjih.domain.priority import priority_for
 from muwajjih.service.ports import DepartmentModel, PredictionRepository
 
 

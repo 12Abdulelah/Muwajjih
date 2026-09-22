@@ -5,7 +5,6 @@ import logging
 from contextvars import ContextVar
 from datetime import UTC, datetime
 
-
 trace_id_context: ContextVar[str] = ContextVar("trace_id", default="-")
 
 

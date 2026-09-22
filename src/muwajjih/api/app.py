@@ -9,8 +9,8 @@ from muwajjih.adapters.model.sklearn import SklearnDepartmentModel
 from muwajjih.adapters.supabase.client import create_supabase_client
 from muwajjih.adapters.supabase.repo import SupabasePredictionRepository
 from muwajjih.api.errors import unhandled_exception_handler, validation_exception_handler
-from muwajjih.api.trace import TraceIdMiddleware
 from muwajjih.api.routes import router
+from muwajjih.api.trace import TraceIdMiddleware
 from muwajjih.config import Settings
 from muwajjih.logs import configure_logging
 from muwajjih.service.triage import TriageService

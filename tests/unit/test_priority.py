@@ -1,9 +1,9 @@
 import pytest
 
-pytestmark = pytest.mark.unit
-
-from muwajjih.domain.priority import priority_for
 from muwajjih.domain.models import Priority
+from muwajjih.domain.priority import priority_for
+
+pytestmark = pytest.mark.unit
 
 
 def test_fire_is_urgent():

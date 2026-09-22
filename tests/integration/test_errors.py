@@ -5,7 +5,6 @@ from muwajjih.api.app import create_app
 from muwajjih.service.triage import TriageService
 from tests.doubles import FailingDepartmentModel
 
-
 pytestmark = pytest.mark.integration
 
 

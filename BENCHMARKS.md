@@ -1,6 +1,6 @@
 # Benchmarks
 
-All results are from local runs using synthetic training data.
+All results are from local runs using synthetic training data
 
 ## Model
 

@@ -4,7 +4,6 @@ from muwajjih.domain.models import Complaint, Department, Priority
 from muwajjih.service.triage import TriageService
 from tests.doubles import ConstantDepartmentModel
 
-
 pytestmark = pytest.mark.unit
 
 

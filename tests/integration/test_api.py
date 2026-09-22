@@ -3,7 +3,6 @@ from fastapi.testclient import TestClient
 
 from muwajjih.api.app import app
 
-
 pytestmark = [pytest.mark.integration, pytest.mark.slow]
 
 

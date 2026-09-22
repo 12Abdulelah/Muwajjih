@@ -12,7 +12,6 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
-
 ROOT = Path(__file__).resolve().parents[4]
 DATASET_PATH = ROOT / "data" / "synthetic.csv"
 ARTIFACT_DIR = Path(__file__).resolve().parent / "artifacts"
@@ -35,8 +34,14 @@ def clean_dataset(data: pd.DataFrame) -> pd.DataFrame:
 def build_pipeline() -> Pipeline:
     return Pipeline(
         steps=[
-            ("tfidf", TfidfVectorizer(lowercase=True, ngram_range=(1, 2), min_df=2, max_features=30000)),
-            ("classifier", LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42)),
+            (
+                "tfidf",
+                TfidfVectorizer(lowercase=True, ngram_range=(1, 2), min_df=2, max_features=30000),
+            ),
+            (
+                "classifier",
+                LogisticRegression(max_iter=1000, class_weight="balanced", random_state=42),
+            ),
         ]
     )
 

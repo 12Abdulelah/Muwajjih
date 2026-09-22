@@ -5,7 +5,6 @@ from typing import Any
 
 from muwajjih.domain.models import TriageResult
 
-
 logger = logging.getLogger("muwajjih.supabase")
 
 
