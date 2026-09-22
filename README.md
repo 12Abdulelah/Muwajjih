@@ -129,27 +129,22 @@ https://github.com/SDAIAAcademy
 
 The following screenshots document the main live-demo flow and CI/CD evidence.
 
-### 1. Service running with Docker Compose
+### 1. Valid prediction request
 
-![Docker Compose running](docs/screenshots/docker-compose-running.jpeg)
+![Valid request](docs/screenshots/valid-request.webp)
 
-### 2. Valid prediction request
+### 2. Valid prediction response
 
-![Valid request](docs/screenshots/valid-request.jpeg)
+![Valid response](docs/screenshots/valid-response.webp)
 
-### 3. Valid prediction response
+### 3. Strict validation with an unexpected field
 
-![Valid response](docs/screenshots/valid-response.jpeg)
+![Malformed request](docs/screenshots/malformed-request.webp)
 
-### 4. Strict validation with an unexpected field
+### 4. Validation error response
 
-![Malformed request](docs/screenshots/malformed-request.jpeg)
+![Validation error response](docs/screenshots/validation-error-response.webp)
 
-### 5. Validation error response
+### 5. CI/CD pipeline
 
-![Validation error response](docs/screenshots/validation-error-response.jpeg)
-
-### 6. CI/CD pipeline
-
-![GitHub Actions success](docs/screenshots/ci-success.jpeg)
-
+![GitHub Actions success](docs/screenshots/ci-success.webp)
