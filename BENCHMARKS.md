@@ -1,6 +1,6 @@
 # Benchmarks
 
-All results are from local runs using synthetic training data
+All measurements below are from local runs using synthetic training data.
 
 ## Model
 
@@ -8,11 +8,16 @@ All results are from local runs using synthetic training data
 - Accuracy: 1.0000
 - Macro F1: 1.0000
 
+These model scores are from synthetic data and are not a claim of real-world government performance.
+
 ## Tests
 
-- 26 passed
-- Branch coverage: 97.33%
-- Test time: 1.25 s
+Latest local verification:
+
+- 41 passed
+- Branch coverage: 88.10%
+- Test time: 5.15 s
+- Required coverage gate: 80%
 
 ## API
 
@@ -21,7 +26,8 @@ Verified:
 - `POST /v1/predict`
 - `GET /health`
 - `GET /ready`
-- `422` validation response
+- unified `422` validation response
+- trace ID propagation
 
 ## Docker
 
@@ -36,3 +42,9 @@ Optimized image:
 - Container startup: passed
 - Docker Compose: healthy
 - Smoke test: passed
+
+The optimized image is below the 500 MB capstone limit.
+
+## CI/CD
+
+The pipeline verifies linting, type-checking, coverage, secret scanning, Docker smoke testing, and GHCR publishing on `main`.
